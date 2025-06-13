@@ -1,0 +1,30 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="48dp"
+        android:height="48dp"
+        android:viewportWidth="48"
+        android:viewportHeight="48">
+
+    <!-- Sun center -->
+    <path
+            android:fillColor="#FFD54F"
+            android:pathData="M24,14a10,10 0 1,0 0.01,0Z" />
+
+    <!-- Sun rays -->
+    <group>
+        <path android:strokeColor="#FFD54F" android:strokeWidth="2" android:pathData="M24,0 L24,8"/>
+        <path android:strokeColor="#FFD54F" android:strokeWidth="2" android:pathData="M24,40 L24,48"/>
+        <path android:strokeColor="#FFD54F" android:strokeWidth="2" android:pathData="M0,24 L8,24"/>
+        <path android:strokeColor="#FFD54F" android:strokeWidth="2" android:pathData="M40,24 L48,24"/>
+        <path android:strokeColor="#FFD54F" android:strokeWidth="2" android:pathData="M9.4,9.4 L14.8,14.8"/>
+        <path android:strokeColor="#FFD54F" android:strokeWidth="2" android:pathData="M38.6,38.6 L33.2,33.2"/>
+        <path android:strokeColor="#FFD54F" android:strokeWidth="2" android:pathData="M9.4,38.6 L14.8,33.2"/>
+        <path android:strokeColor="#FFD54F" android:strokeWidth="2" android:pathData="M38.6,9.4 L33.2,14.8"/>
+    </group>
+
+    <!-- Letter T centered -->
+    <group android:translateX="19" android:translateY="19">
+        <path
+                android:fillColor="#000000"
+                android:pathData="M0,0 H10 V2 H6 V10 H4 V2 H0 Z" />
+    </group>
+</vector>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Turn Off The Flash</string>
+    <string name="tile_label">Brightness Monitor</string>
 </resources>

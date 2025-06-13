@@ -16,6 +16,8 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 class BrightnessService : Service() {
@@ -38,6 +40,13 @@ class BrightnessService : Service() {
     override fun onCreate() {
         super.onCreate()
         settingsManager = SettingsManager(this)
+
+        settingsManager.isServiceEnabled.onEach { isEnabled ->
+            if (!isEnabled) {
+                stopSelf()
+            }
+        }.launchIn(scope)
+
         contentResolver.registerContentObserver(
             Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS),
             true,

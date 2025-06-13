@@ -51,9 +51,7 @@ fun MainScreen(
                         coroutineScope.launch {
                             settingsManager.setServiceEnabled(isEnabled)
                             if (isEnabled) {
-                                context.startForegroundService(serviceIntent)
-                            } else {
-                                context.stopService(serviceIntent)
+                                context.startForegroundService(Intent(context, BrightnessService::class.java))
                             }
                         }
                     }
