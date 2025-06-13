@@ -17,8 +17,7 @@ class SettingsManager(context: Context) {
 
     companion object {
         val SERVICE_ENABLED_KEY = booleanPreferencesKey("service_enabled")
-        val LOWER_BRIGHTNESS_THRESHOLD_KEY = intPreferencesKey("lower_brightness_threshold")
-        val UPPER_BRIGHTNESS_THRESHOLD_KEY = intPreferencesKey("upper_brightness_threshold")
+        val BRIGHTNESS_THRESHOLD_KEY = intPreferencesKey("brightness_threshold")
     }
 
     val isServiceEnabled: Flow<Boolean> = dataStore.data
@@ -26,14 +25,9 @@ class SettingsManager(context: Context) {
             preferences[SERVICE_ENABLED_KEY] ?: false
         }
 
-    val lowerBrightnessThreshold: Flow<Int> = dataStore.data
+    val brightnessThreshold: Flow<Int> = dataStore.data
         .map { preferences ->
-            preferences[LOWER_BRIGHTNESS_THRESHOLD_KEY] ?: 50
-        }
-
-    val upperBrightnessThreshold: Flow<Int> = dataStore.data
-        .map { preferences ->
-            preferences[UPPER_BRIGHTNESS_THRESHOLD_KEY] ?: 200
+            preferences[BRIGHTNESS_THRESHOLD_KEY] ?: 32
         }
 
     suspend fun setServiceEnabled(isEnabled: Boolean) {
@@ -42,15 +36,9 @@ class SettingsManager(context: Context) {
         }
     }
 
-    suspend fun setLowerBrightnessThreshold(threshold: Int) {
+    suspend fun setBrightnessThreshold(threshold: Int) {
         dataStore.edit { preferences ->
-            preferences[LOWER_BRIGHTNESS_THRESHOLD_KEY] = threshold
-        }
-    }
-
-    suspend fun setUpperBrightnessThreshold(threshold: Int) {
-        dataStore.edit { preferences ->
-            preferences[UPPER_BRIGHTNESS_THRESHOLD_KEY] = threshold
+            preferences[BRIGHTNESS_THRESHOLD_KEY] = threshold
         }
     }
 }

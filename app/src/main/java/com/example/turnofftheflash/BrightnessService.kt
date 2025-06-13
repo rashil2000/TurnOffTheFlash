@@ -1,6 +1,5 @@
 package com.example.turnofftheflash
 
-import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -61,13 +60,12 @@ class BrightnessService : Service() {
 
     private fun checkBrightness(currentBrightness: Int) {
         scope.launch {
-            val lowerThreshold = settingsManager.lowerBrightnessThreshold.first()
-            val upperThreshold = settingsManager.upperBrightnessThreshold.first()
+            val threshold = settingsManager.brightnessThreshold.first()
             val isDarkMode = DarkModeManager.isSystemDarkMode(this@BrightnessService)
 
-            if (currentBrightness < lowerThreshold && !isDarkMode) {
+            if (currentBrightness < threshold && !isDarkMode) {
                 DarkModeManager.toggleSystemDarkMode(this@BrightnessService)
-            } else if (currentBrightness > upperThreshold && isDarkMode) {
+            } else if (currentBrightness > threshold && isDarkMode) {
                 DarkModeManager.toggleSystemDarkMode(this@BrightnessService)
             }
         }

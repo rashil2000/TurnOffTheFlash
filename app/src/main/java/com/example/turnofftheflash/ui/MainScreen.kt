@@ -30,8 +30,7 @@ fun MainScreen(
     }
 
     val isServiceEnabled by settingsManager.isServiceEnabled.collectAsState(initial = false)
-    val lowerThreshold by settingsManager.lowerBrightnessThreshold.collectAsState(initial = 50)
-    val upperThreshold by settingsManager.upperBrightnessThreshold.collectAsState(initial = 200)
+    val brightnessThreshold by settingsManager.brightnessThreshold.collectAsState(initial = 32)
     val currentBrightness by BrightnessService.currentBrightness.collectAsState()
 
     Column(
@@ -64,25 +63,12 @@ fun MainScreen(
             Text(text = "Current Brightness: $currentBrightness")
             Spacer(modifier = Modifier.height(16.dp))
 
-            Text(text = "Turn on dark mode below: $lowerThreshold")
+            Text(text = "Brightness Threshold: $brightnessThreshold")
             Slider(
-                value = lowerThreshold.toFloat(),
+                value = brightnessThreshold.toFloat(),
                 onValueChange = { value ->
                     coroutineScope.launch {
-                        settingsManager.setLowerBrightnessThreshold(value.roundToInt())
-                    }
-                },
-                valueRange = 0f..255f,
-                enabled = isServiceEnabled
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(text = "Turn off dark mode above: $upperThreshold")
-            Slider(
-                value = upperThreshold.toFloat(),
-                onValueChange = { value ->
-                    coroutineScope.launch {
-                        settingsManager.setUpperBrightnessThreshold(value.roundToInt())
+                        settingsManager.setBrightnessThreshold(value.roundToInt())
                     }
                 },
                 valueRange = 0f..255f,
