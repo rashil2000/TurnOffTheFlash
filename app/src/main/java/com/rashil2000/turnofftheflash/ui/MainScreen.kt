@@ -1,4 +1,4 @@
-package com.example.turnofftheflash.ui
+package com.rashil2000.turnofftheflash.ui
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,8 +9,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.turnofftheflash.BrightnessService
-import com.example.turnofftheflash.SettingsManager
+import com.rashil2000.turnofftheflash.BrightnessService
+import com.rashil2000.turnofftheflash.SettingsManager
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 

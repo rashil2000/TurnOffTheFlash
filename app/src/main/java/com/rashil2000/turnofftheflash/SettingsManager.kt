@@ -1,4 +1,4 @@
-package com.example.turnofftheflash
+package com.rashil2000.turnofftheflash
 
 import android.content.Context
 import androidx.datastore.core.DataStore

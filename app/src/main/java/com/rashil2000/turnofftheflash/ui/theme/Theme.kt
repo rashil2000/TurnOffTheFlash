@@ -1,4 +1,4 @@
-package com.example.turnofftheflash.ui.theme
+package com.rashil2000.turnofftheflash.ui.theme
 
 import android.app.Activity
 import android.os.Build

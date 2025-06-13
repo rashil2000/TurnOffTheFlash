@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.turnofftheflash"
+    namespace = "com.rashil2000.turnofftheflash"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.turnofftheflash"
+        applicationId = "com.rashil2000.turnofftheflash"
         minSdk = 35
         targetSdk = 35
         versionCode = 1
@@ -22,6 +22,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {

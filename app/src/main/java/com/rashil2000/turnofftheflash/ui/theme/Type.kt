@@ -1,4 +1,4 @@
-package com.example.turnofftheflash.ui.theme
+package com.rashil2000.turnofftheflash.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

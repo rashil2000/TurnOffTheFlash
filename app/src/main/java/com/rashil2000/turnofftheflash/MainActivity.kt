@@ -1,4 +1,4 @@
-package com.example.turnofftheflash
+package com.rashil2000.turnofftheflash
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.lifecycleScope
-import com.example.turnofftheflash.ui.MainScreen
-import com.example.turnofftheflash.ui.theme.TurnOffTheFlashTheme
+import com.rashil2000.turnofftheflash.ui.MainScreen
+import com.rashil2000.turnofftheflash.ui.theme.TurnOffTheFlashTheme
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
