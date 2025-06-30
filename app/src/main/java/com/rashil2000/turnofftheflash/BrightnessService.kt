@@ -56,6 +56,12 @@ class BrightnessService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         startForeground(NOTIFICATION_ID, createNotification())
+
+        // Check brightness immediately when service starts
+        val currentBrightness = Settings.System.getInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS)
+        _currentBrightness.value = currentBrightness
+        checkBrightness(currentBrightness)
+
         return START_STICKY
     }
 
